@@ -1,64 +1,82 @@
 import React from 'react';
 import * as ReactBootStrap from "react-bootstrap";
-
+import {Container, Row , Col } from 'reactstrap';
+import data from './Data.json'
 
 class OverView extends React.Component {
-      render (){
-     const players = [
-         {position: "Forward", Name: "lebron", Team: "lacker"},
-         {position: "Guard", Name: "Russel WestBrook", Team: "Rockets"},
-         {position: "Guard", Name: "jamesHarden", Team: "Rockets"},
-         {position: "Forward", Name: "luckadominic", Team: "Havrelicks"},
-     ]
-
-     const renderPlayer = (player, index) => {
-         return (
-             <tr key ={index}>
-               <td>{player.position}</td>
-               <td>{player.name}</td>
-               <td>{player.team}</td>
-             </tr>
-         )
+  constructor(){
+    super()
+    this.state={
+      items:null,
+      loading:true
+    }
+  }
+  componentDidMount (){
+    this.setState({items:data,loading:false})
+    
+  }
+   renderData() {
+     console.log(this.state.loading)
+     if(!this.state.loading){
+       console.log(this.state.items.LISTARTICLE)
+       return this.state.items.LISTARTICLE.map((item,i)=>{
+        return (
+          <tr>
+            <td>{item.BARNEGATIVE}</td>
+            <td>{item.BARPOSITIVE}</td>
+            <td>{item.CODIC}</td>
+            <td>{item.CREATIONDATE}</td>
+            <td>{item.DISPLAYPROGRESSATTRIBUTE}</td>
+            <td>{item.FAMILY}</td>
+            <td>{item.FNACSKU}</td>
+            <td>{item.MARQUE}</td>
+            <td>{item.NAMECP}</td>
+            <td>{item.URL}</td>
+            <td>{item.VISIBILTYINFOFNAC}</td>
+          </tr>
+        )
+      })
+     } else{
+      return 
      }
-
+   
+}
+      render (){
+        // console.log(this.state.items[0])
       return( 
           
            <div className="OverView">
-          <ReactBootStrap.Table striped bordered hover>
+            <h1 align='center'> Liste d'article  </h1> 
+            <Container fluid="md">
+                        <Row>
+             <Col>1 of 1</Col>
+                        </Row>
+             </Container>
+          <ReactBootStrap.Table striped bordered hover variant="dark">
           <thead>
             <tr>
-              <th>#</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
+              <th>BARNEGATIVE</th>
+              <th>BARPOSITIVE</th>
+              <th>CODIC</th>
+              <th>CREATIONDATE</th>
+              <th>DISPLAY PROGRESS ATTRIBUTE</th>
+              <th>FAMILY</th>
+              <th>FNACSKU</th>
+              <th>MARQUE</th>
+              <th>NAMECP</th>
+              <th>URL</th>
+              <th>VISIBILTY INFOFNAC</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td colSpan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            {this.renderData()}
           </tbody>
         </ReactBootStrap.Table>
         </div>
       );
       }
-    
-    }
 
-  
 
-  export default OverView;
+}
+
+export default OverView;
