@@ -44,35 +44,32 @@ class OverView extends React.Component {
       render (){
         // console.log(this.state.items[0])
       return( 
-          
+        
            <div className="OverView">
-            <h1 align='center'> Liste d'article  </h1> 
-            <Container fluid="md">
-                        <Row>
-             <Col>1 of 1</Col>
-                        </Row>
-             </Container>
-          <ReactBootStrap.Table striped bordered hover variant="dark">
+             <h1 align='center'> Liste d'article  </h1> 
+            <ReactBootStrap.Table  className="table1" variant="dark">
           <thead>
             <tr>
               <th>BARNEGATIVE</th>
               <th>BARPOSITIVE</th>
               <th>CODIC</th>
               <th>CREATIONDATE</th>
-              <th>DISPLAY PROGRESS ATTRIBUTE</th>
+              <th><div data-toggle="tooltip" data-placement="right" title="DISPLAY PROGRESS ATTRIBUTE">DPA</div></th>
               <th>FAMILY</th>
               <th>FNACSKU</th>
               <th>MARQUE</th>
               <th>NAMECP</th>
               <th>URL</th>
-              <th>VISIBILTY INFOFNAC</th>
+              <th><div data-toggle="tooltip" data-placement="left" title="VISIBILTY INFOFNAC">VISIBILITY</div></th>
             </tr>
           </thead>
           <tbody>
             {this.renderData()}
           </tbody>
         </ReactBootStrap.Table>
+                      
         </div>
+        
       );
       }
 
