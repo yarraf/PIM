@@ -27,7 +27,7 @@ class HomeView extends React.Component{
     </tr>
   </thead>
   <tbody>
-    {this.props.articles.Count() ? this.props.articles.map((article,index)=>(
+    {this.props.articles  && this.props.articles.Count>0 ? this.props.articles.map((article,index)=>(
         <tr key={index}>
             <td>{article.CODIC}</td>
             <td>{article.NAMECP}</td>

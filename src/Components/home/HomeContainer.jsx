@@ -8,7 +8,9 @@ class HomeContainer extends React.Component{
 //state = {creteriaSearch=""}
 
 componentDidMount(){
-    
+    //for testing
+    //this.props.getTopArticles();
+        
 }
 
 render(){
@@ -17,10 +19,9 @@ render(){
         <HomeView articles = {topArticles || []}/>
     );
 }
-
 }
 
-const mapStateToProps = ({topArticles})=> ({topArticles});
-const mapDispatchProps={getTopArticles};
-export default connect(mapStateToProps,mapDispatchProps)(HomeContainer);
+const mapStateToProps = (topArticles)=> ({topArticles});
+//const mapDispatchProps={getTopArticles};
+export default connect(()=>mapStateToProps)(HomeContainer);
 //export default HomeContainer;
