@@ -21,7 +21,8 @@ render(){
 }
 }
 
-const mapStateToProps = (topArticles)=> ({topArticles});
-//const mapDispatchProps={getTopArticles};
-export default connect(()=>mapStateToProps)(HomeContainer);
+//const mapStateToProps = (topArticles)=> ({topArticles});
+const mapDispatchProps={getTopArticles};
+export default connect (()=> mapDispatchProps)(HomeContainer)
+//export default connect(()=>mapStateToProps)(HomeContainer);
 //export default HomeContainer;

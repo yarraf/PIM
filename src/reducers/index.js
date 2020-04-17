@@ -2,5 +2,5 @@ import {combineReducers} from 'redux';
 import userArticlesReducer from '../reducers/articleReducer'
 
 export default combineReducers({
-    userArticlesReducer
+    userArticle:userArticlesReducer
 });

@@ -1,6 +1,13 @@
-import {createStore} from "redux";
-import reducer from './reducers';
+import { createStore,applyMiddleware } from 'redux';
+import rootReducer from './reducers';
+import thunk from 'redux-thunk';
+const initialState = {};
+const middleware = [thunk];
 
-const store = createStore(reducer);
+const store = createStore(
+  rootReducer,
+  initialState,
+  applyMiddleware(...middleware)
+);
 
 export default store;
