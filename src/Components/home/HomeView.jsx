@@ -4,9 +4,24 @@ import Overview from '../OverView/OverView';
 import './home.scss';
 import { connect } from "react-redux";
 import { getArticles } from '../../actions/userArticlesAction'
+
+
+function tick() {
+	const element = (
+	  <div>
+		<h1>Hello, world!</h1>
+		<h2>It is {new Date().toLocaleTimeString()}.</h2>
+	  </div>
+	);
+	
+  }
+  
+  setInterval(tick, 1000);
+
+
 const HomeView=(props)=> {
 	useEffect(() => {
-    props.getArticles()
+	props.getArticles();
 		
     //eslint-disable-next-line
 	}, []);	
@@ -30,14 +45,15 @@ const HomeView=(props)=> {
 								</tr>
 							</thead>
 							<tbody>
-								{ props.userArticle.articles.Count != 0 ? props.userArticle.articles.map((article, index) => (
+								{ props.userArticle.articles.Count != 0  ? props.userArticle.articles.map((article, index) => 
+								
 									<tr key={index}>
 										<td>{article.CODIC}</td>
 										<td>{article.NAMECP}</td>
 										<td>{article.MARQUE}</td>
 										<td>{article.FAMILY}</td>
 									</tr>
-								)) :
+								) :
 									<tr>
 										<td colSpan="4">Empty</td>
 									</tr>

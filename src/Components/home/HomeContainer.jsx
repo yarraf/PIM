@@ -14,7 +14,7 @@ componentDidMount(){
 }
 
 render(){
-    const {topArticles}= this.props;
+    const {topArticles}= this.props
     return(
         <HomeView articles = {topArticles || []}/>
     );
@@ -22,7 +22,7 @@ render(){
 }
 
 //const mapStateToProps = (topArticles)=> ({topArticles});
-const mapDispatchProps={getTopArticles};
+const mapDispatchProps={getTopArticles}; 
 export default connect (()=> mapDispatchProps)(HomeContainer)
 //export default connect(()=>mapStateToProps)(HomeContainer);
 //export default HomeContainer;
