@@ -6,17 +6,6 @@ import { connect } from "react-redux";
 import { getArticles } from '../../actions/userArticlesAction'
 
 
-function tick() {
-	const element = (
-	  <div>
-		<h1>Hello, world!</h1>
-		<h2>It is {new Date().toLocaleTimeString()}.</h2>
-	  </div>
-	);
-	
-  }
-  
-  setInterval(tick, 1000);
 
 
 const HomeView=(props)=> {
@@ -25,6 +14,7 @@ const HomeView=(props)=> {
 		
     //eslint-disable-next-line
 	}, []);	
+	
 	console.log(props.userArticle.articles);
 		return (
 			<Container className="content bs-margin-top">
@@ -47,7 +37,7 @@ const HomeView=(props)=> {
 							<tbody>
 								{ props.userArticle.articles.Count != 0  ? props.userArticle.articles.map((article, index) => 
 								
-									<tr key={index}>
+									<tr key={index} onClick={() => handleClick(this)} >
 										<td>{article.CODIC}</td>
 										<td>{article.NAMECP}</td>
 										<td>{article.MARQUE}</td>
@@ -56,6 +46,8 @@ const HomeView=(props)=> {
 								) :
 									<tr>
 										<td colSpan="4">Empty</td>
+
+										
 									</tr>
 								}
 							</tbody>
@@ -64,10 +56,20 @@ const HomeView=(props)=> {
 				</Row>
 			</Container>
 		);
-
+	
 }
+
+
 
 const mapStateToProps = (state) => ({
 	userArticle: state.userArticle,
 });
 export default connect(mapStateToProps, { getArticles })(HomeView);
+
+
+var i=0;
+ export function handleClick() {
+ 
+	console.log("click : ", i++,); 
+	//onClick(data);
+}

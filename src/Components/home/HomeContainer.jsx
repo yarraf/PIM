@@ -16,6 +16,8 @@ componentDidMount(){
 render(){
     const {topArticles}= this.props
     return(
+
+        
         <HomeView articles = {topArticles || []}/>
     );
 }
