@@ -3,8 +3,10 @@ import { Container, Row, Col, Table } from "react-bootstrap";
 import Overview from '../OverView/OverView';
 import './home.scss';
 import { connect } from "react-redux";
-import { getArticles } from '../../actions/userArticlesAction'
-const HomeView=(props)=> {
+import { getArticles } from '../../actions/userArticlesAction';
+
+
+/*const HomeView=(props)=> {
 	useEffect(() => {
     props.getArticles()
 		
@@ -49,9 +51,47 @@ const HomeView=(props)=> {
 			</Container>
 		);
 
-}
+}*/
 
-const mapStateToProps = (state) => ({
-	userArticle: state.userArticle,
-});
-export default connect(mapStateToProps, { getArticles })(HomeView);
+export default class HomeView extends React.Component{
+	render(){
+		return (
+			<Container className="content bs-margin-top">
+				<Row>
+					<Col md={3}>
+						<h2> Liste articles  </h2>
+					</Col>
+				</Row>
+				<Row>
+					<Col md={{ span: 10, offset: 1 }}>
+						<Table striped bordered hover variant="dark">
+							<thead>
+								<tr>
+									<th>CODIC</th>
+									<th>Name CP</th>
+									<th>Brend</th>
+									<th>Family</th>
+								</tr>
+							</thead>
+							<tbody>
+								{ this.props.articles ? this.props.articles.map((article, index) => (
+									<tr key={index}>
+										<td>{article.CODIC}</td>
+										<td>{article.NAMECP}</td>
+										<td>{article.MARQUE}</td>
+										<td>{article.FAMILY}</td>
+									</tr>
+								)) :
+									<tr>
+										<td colSpan="4">Empty</td>
+									</tr>
+								}
+							</tbody>
+						</Table>
+					</Col>
+				</Row>
+			</Container>
+		);
+	}
+	
+}

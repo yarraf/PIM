@@ -1,28 +1,28 @@
 import React from 'react';
 import HomeView from './HomeView';
 import {connect} from "react-redux";
-import {getTopArticles} from '../../actions/userArticlesAction'
+import {getArticles} from '../../actions/userArticlesAction'
 
 
 class HomeContainer extends React.Component{
-//state = {creteriaSearch=""}
+constructor(){
+   
+}
 
 componentDidMount(){
-    //for testing
-    //this.props.getTopArticles();
-        
+ 
+    this.props.getArticles();       
 }
 
 render(){
-    const {topArticles}= this.props;
+    const {userArticles}= this.props;
     return(
-        <HomeView articles = {topArticles || []}/>
+        <HomeView articles = {userArticles.articles || []}/>
     );
 }
 }
 
-//const mapStateToProps = (topArticles)=> ({topArticles});
-const mapDispatchProps={getTopArticles};
-export default connect (()=> mapDispatchProps)(HomeContainer)
-//export default connect(()=>mapStateToProps)(HomeContainer);
-//export default HomeContainer;
+const mapStateToProps = ({userArticles})=> ({userArticles});
+
+const mapDispatchProps={getArticles};
+export default connect(mapStateToProps,mapDispatchProps)(HomeContainer);

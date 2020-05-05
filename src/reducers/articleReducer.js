@@ -1,16 +1,20 @@
-import { GET_TOP_ARTICLES } from '../actions/types';
+import {FETCHED_ARTICLES} from '../actions/types';
 
 const initialState = {
-    articles: [],
+   articles:[],
     Loaded: false,
 };
-export default (state = initialState, action) => {
+const articleReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_TOP_ARTICLES:
-            console.log('test', action.payload)
-            return { ...state, articles:action.payload.LISTARTICLE,Loaded: true };
+        case FETCHED_ARTICLES:
+           return {
+               articles: action.payload.data,
+               loading:false
+           };
 
         default:
             return state;
     }
 }
+
+export default articleReducer;
