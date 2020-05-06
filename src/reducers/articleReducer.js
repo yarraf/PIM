@@ -1,4 +1,4 @@
-import {FETCHED_ARTICLES} from '../actions/types';
+import {FETCHED_ARTICLES,FETCHED_GET_ONE_ARTICLE} from '../actions/types';
 
 const initialState = {
    articles:[],
@@ -9,8 +9,14 @@ const articleReducer = (state = initialState, action) => {
         case FETCHED_ARTICLES:
            return {
                articles: action.payload.data,
-               loading:false
+               loading:false,
+               isSelected:false      
            };
+           case FETCHED_GET_ONE_ARTICLE:
+               return{
+                    article:action.payload.data,
+                    isSelected:true                   
+               };
 
         default:
             return state;
