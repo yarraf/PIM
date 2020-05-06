@@ -2,20 +2,29 @@ import React,{useEffect} from 'react';
 import { Container, Row, Col, Table } from "react-bootstrap";
 import Overview from '../OverView/OverView';
 import './home.scss';
-import { connect } from "react-redux";
-import { getArticles } from '../../actions/userArticlesAction'
+import {connect} from 'react-redux';
+//import {getArticleByCodic} from '../../actions/userArticlesAction'
 
 
 
+ class HomeView extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={
+			isSelected:false,
+			articleSelected:""
+		}
 
-const HomeView=(props)=> {
-	useEffect(() => {
-	props.getArticles();
-		
-    //eslint-disable-next-line
-	}, []);	
-	
-	console.log(props.userArticle.articles);
+		//this.getDetailArticle=this.getDetailArticle().bind(this);
+	}
+
+	handlArticle=(value)=>{		
+		let isSelected=true, articleSelected=value;
+		localStorage.setItem('SELECTED_CODIC',value);
+		this.setState({isSelected,articleSelected});
+		this.props.getDetail();
+	}
+	render(){
 		return (
 			<Container className="content bs-margin-top">
 				<Row>
@@ -35,15 +44,15 @@ const HomeView=(props)=> {
 								</tr>
 							</thead>
 							<tbody>
-								{ props.userArticle.articles.Count != 0  ? props.userArticle.articles.map((article, index) => 
 								
-									<tr key={index} onClick={() => handleClick(this)} >
+							{this.props.articles ? this.props.articles.map((article, index) => (
+									<tr key={index} onClick={(e)=> {e.preventDefault(); this.handlArticle(article.CODIC);}}>
 										<td>{article.CODIC}</td>
 										<td>{article.NAMECP}</td>
 										<td>{article.MARQUE}</td>
 										<td>{article.FAMILY}</td>
-									</tr>
-								) :
+									</tr>))
+								:
 									<tr>
 										<td colSpan="4">Empty</td>
 
@@ -56,20 +65,11 @@ const HomeView=(props)=> {
 				</Row>
 			</Container>
 		);
+	}
 	
 }
 
-
-
-const mapStateToProps = (state) => ({
-	userArticle: state.userArticle,
-});
-export default connect(mapStateToProps, { getArticles })(HomeView);
-
-
-var i=0;
- export function handleClick() {
- 
-	console.log("click : ", i++,); 
-	//onClick(data);
-}
+//const mapStateToProps = ({userArticles})=> ({userArticles});
+//const mapDispatchtoProps={getArticleByCodic}
+//export default connect(null,mapDispatchtoProps)(HomeView);
+export default HomeView;

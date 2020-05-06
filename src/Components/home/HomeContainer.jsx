@@ -1,30 +1,49 @@
 import React from 'react';
 import HomeView from './HomeView';
+import {Redirect} from 'react-router-dom';
 import {connect} from "react-redux";
-import {getTopArticles} from '../../actions/userArticlesAction'
-
+import {getArticles,getArticleByCodic} from '../../actions/userArticlesAction'
 
 class HomeContainer extends React.Component{
-//state = {creteriaSearch=""}
 
+  constructor(props){
+      super(props);
+      this.state={
+        articleSelected:"",
+        isSelected:false
+    }
+
+    this.onSelect=this.onSelect.bind(this);
+  }
+
+onSelect(){
+    if (localStorage.getItem('SELECTED_CODIC')){
+        //console.log(localStorage.getItem('SELECTED_CODIC'));
+        let isSelected=true, articleSelected=localStorage.getItem('SELECTED_CODIC');
+		this.setState({isSelected,articleSelected});
+        //this.props.getArticleByCodic();
+    }
+    
+}
 componentDidMount(){
-    //for testing
-    //this.props.getTopArticles();
-        
+    console.log("call container")
+    this.props.getArticles();   
 }
 
 render(){
-    const {topArticles}= this.props
-    return(
-
+    const {userArticles}= this.props;
+    return(    
+        <React.Fragment>
+            {this.state.isSelected ? <Redirect to="/detail" /> :
+                <HomeView articles = {userArticles.articles || []}  getDetail={this.onSelect}/>
+            }
         
-        <HomeView articles = {topArticles || []}/>
+        </React.Fragment>    
+       
     );
 }
 }
 
-//const mapStateToProps = (topArticles)=> ({topArticles});
-const mapDispatchProps={getTopArticles}; 
-export default connect (()=> mapDispatchProps)(HomeContainer)
-//export default connect(()=>mapStateToProps)(HomeContainer);
-//export default HomeContainer;
+const mapStateToProps = ({userArticles})=> ({userArticles});
+const mapDispatchProps={getArticles,getArticleByCodic};
+export default connect(mapStateToProps,mapDispatchProps)(HomeContainer);

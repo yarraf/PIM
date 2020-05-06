@@ -1,21 +1,27 @@
-import { GET_TOP_ARTICLES } from '../actions/types';
+import {FETCHED_ARTICLES,FETCHED_GET_ONE_ARTICLE} from '../actions/types';
 
 
 const initialState = {
-    articles: [],
+   articles:[],
     Loaded: false,
 };
-export default (state = initialState, action) => {
+const articleReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_TOP_ARTICLES:
-            console.log('test', action.payload)
-            return { ...state, articles:action.payload.LISTARTICLE.slice(0,10),Loaded: true
-            
-               
-            
-            };
-                  
+        case FETCHED_ARTICLES:
+           return {
+               articles: action.payload.data,
+               loading:false,
+               isSelected:false      
+           };
+           case FETCHED_GET_ONE_ARTICLE:
+               return{
+                    article:action.payload.data,
+                    isSelected:true                   
+               };
+
         default:
             return state;
     }
 }
+
+export default articleReducer;
