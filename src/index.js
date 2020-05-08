@@ -6,7 +6,7 @@ import store from './store';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
-import Container from './Components/container/Container';
+import Container from './Components/Container/Container';
 import HomeContainer from './Components/home/HomeContainer';
 import DetailContainer from './Components/detail/DetailContainer';
 
