@@ -1,0 +1,66 @@
+
+.content {
+    .publication-form {
+      border: 1px solid #dcdcdc;
+    }
+  };
+
+  .bs-maring-top {
+    margin-top: 10px;
+  }
+
+  //Placeholder
+  %p {
+    font-size: 1rem;
+    font-weight: normal;
+  }
+  %h3 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  %h2 {
+    font-size: 1.125rem;
+    //font-weight: bold;
+  }
+//end placeholder
+
+  .left {
+      margin-top:0.5rem;
+    padding-right: 1rem;
+    border-radius: .7rem;
+    &__avatar {
+      width: 12.5rem;
+      height: 10.5rem;
+      object-fit: cover;
+      border-radius: .7rem;
+    }
+    &__avatarhome {
+        width: 12.5rem;
+        height: 10.5rem;
+        object-fit: cover;
+        border: 3px solid white;
+        box-shadow: 1px 1px #f2f2f2;
+        border-radius: .7rem;
+        // max-width: 120px !important;
+        height: auto !important;
+      }
+      &__artcodic {
+        @extend %h2;
+        color: #212121;
+        margin-top: 1rem;
+        font-weight: bold;
+        font-size: 1em;
+      }
+      &__artname {
+        @extend %h2;
+        color: #212121;
+        margin-top: 1rem;
+    
+        font-size: 1em;
+      }
+      &__description {
+        @extend %p;
+        color: #212121;
+        margin-bottom: 1rem;
+      }
+    }
