@@ -2,7 +2,9 @@ import React from 'react';
 import HomeView from './HomeView';
 import {Redirect} from 'react-router-dom';
 import {connect} from "react-redux";
-import {getArticles,getArticleByCodic} from '../../actions/userArticlesAction'
+import {getArticles} from '../../actions/userArticlesAction';
+
+
 
 class HomeContainer extends React.Component{
 
@@ -45,5 +47,5 @@ render(){
 }
 
 const mapStateToProps = ({userArticles})=> ({userArticles});
-const mapDispatchProps={getArticles,getArticleByCodic};
+const mapDispatchProps={getArticles};
 export default connect(mapStateToProps,mapDispatchProps)(HomeContainer);
