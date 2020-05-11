@@ -15,11 +15,7 @@ export default class DetailView extends React.Component{
         redirect: true 
       }) 
     } 
-    renderRedirect = () => { 
-      if (this.state.redirect) { 
-        return <Redirect to = '/ home' /> 
-      } 
-    } 
+   
 
     componentDidMount(){
       let currentCodic=localStorage.getItem('SELECTED_CODIC');
