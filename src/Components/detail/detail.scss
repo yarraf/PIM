@@ -1,3 +1,6 @@
+//VARS
+$c-dark: #7b7b7b;
+
 
 .content {
     .publication-form {
@@ -64,3 +67,19 @@
         margin-bottom: 1rem;
       }
     }
+
+    .left-meta {
+        margin-top: -0.5rem;
+        color: $c-dark;
+        margin-left: 0rem;
+        @extend %p;
+      
+        &__icon {
+          width: 1.5rem;
+          margin-right: 0.5rem;
+          margin-top: 0.5rem;
+      
+          display: inline-block;
+        }
+      }
+    

@@ -1,18 +1,24 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import { Provider } from 'react-redux';
 import store from './store';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
 import Container from './Components/container/Container';
-import HomeContainer from './Components/home/HomeContainer';
 import DetailContainer from './Components/detail/DetailContainer';
+import "./index.scss";
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faShare } from '@fortawesome/free-solid-svg-icons';
+library.add(faHeart, faShare);
+
 
 class IndexApp extends React.Component{
     render(){
-        //localStorage.clear();
+        localStorage.clear();
 
         return(
             <Provider store ={store}>
