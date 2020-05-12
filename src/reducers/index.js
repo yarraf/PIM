@@ -1,6 +1,10 @@
 import {combineReducers} from 'redux';
-import userArticlesReducer from '../reducers/articleReducer'
+import userArticle from './articleReducer';
+import articleInfo from './articleDetailReducer';
+import articleTags from './articleTagsReducer';
 
 export default combineReducers({
-    userArticle:userArticlesReducer
+    userArticle,
+    articleInfo,
+    articleTags
 });
