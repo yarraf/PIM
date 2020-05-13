@@ -15,7 +15,7 @@ import {connect} from 'react-redux';
             articleSelected:""
         }
 
-        //this.getDetailArticle=this.getDetailArticle().bind(this);
+        
     }
 
     handlArticle=(value)=>{     
@@ -67,7 +67,5 @@ import {connect} from 'react-redux';
     
 }
 
-//const mapStateToProps = ({userArticles})=> ({userArticles});
-//const mapDispatchtoProps={getArticleByCodic}
-//export default connect(null,mapDispatchtoProps)(HomeView);
+
 export default HomeView;

@@ -9,8 +9,8 @@ const articleReducer = (state = initialState, action) => {
     switch (action.type) {
         case FETCHED_ARTICLES:
            return {
-              articles: action.payload.data,
-               //articles: action.payload.data.slice(0,10),
+             // articles: action.payload.data,
+               articles: action.payload.data.slice(0,10),
                loading:false,
                isSelected:false      
            };
@@ -24,5 +24,4 @@ const articleReducer = (state = initialState, action) => {
             return state;
     }
 }
-
 export default articleReducer;

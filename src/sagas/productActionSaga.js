@@ -9,7 +9,7 @@ function* getProductInfoWorker(action){
     const selectArtResponse={data:{"BARNEGATIVE":77,"BARPOSITIVE":0,"CODIC":8265550,"CREATIONDATE":"02/04/2020","DISPLAYPROGRESSATTRIBUTE":"","FAMILY":"PC PORTABLE","FNACSKU":"","MARQUE":"ALCATEL","NAMECP":"TESTRESCOM","URL":"/PIMBO/appcen/LIB.WebRequest.cls?Np=LGqa5nuvsjvqsTOtgqqc9morceqbeSOhYD8k","VISIBILTYINFOFNAC":"hidden"}};
      console.log("getarticlebycodic"+action.article);
      try{
-         if(action.article != ""){
+         if(action.article !== ""){
              yield put({type:FETCHED_ARTICLE_INFO,payload:selectArtResponse});
          }
 
@@ -19,7 +19,7 @@ function* getProductInfoWorker(action){
 }
 
 function* getArticleTags(){
- //For testing:
+ 
  const tagsResponse = {data:[{ID:1,NAME:"TV"},{ID:2,NAME:"RADIO"}]}
  yield put({type:FETCHED_ARTICLE_TAGS,payload:tagsResponse})
 }
@@ -31,4 +31,3 @@ export function* productInfoWatcher(){
 export function* productTagsWatcher(){
     yield takeLatest(GET_TAGS_ARTICLE,getArticleTags);
 }
- 

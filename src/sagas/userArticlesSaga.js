@@ -53,5 +53,4 @@ export function* UserArticlesWatcher(){
 
 export function* GetOneArticleByCodicWatcher(){
     yield takeLatest(GET_ARTICLE_BY_CODIC, getArticleWorker);
-
 }

@@ -1,76 +1,51 @@
-import React,{useEffect} from 'react';
-import { Container, Row, Col, Table } from "react-bootstrap";
-import Overview from '../OverView/OverView';
-import './home.scss';
-import {connect} from 'react-redux';
-//import {getArticleByCodic} from '../../actions/userArticlesAction'
+import React from 'react';
+import HomeView from './HomeView';
+import {Redirect} from 'react-router-dom';
+import {connect} from "react-redux";
+import {getArticles} from '../../actions/userArticlesAction';
 
 
 
- class HomeView extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
-            isSelected:false,
-            articleSelected:""
-        }
+class HomeContainer extends React.Component{
 
-        //this.getDetailArticle=this.getDetailArticle().bind(this);
+  constructor(props){
+      super(props);
+      this.state={
+        articleSelected:"",
+        isSelected:false
     }
 
-    handlArticle=(value)=>{     
-        let isSelected=true, articleSelected=value;
-        localStorage.setItem('SELECTED_CODIC',value);
-        this.setState({isSelected,articleSelected});
-        this.props.getDetail();
-    }
-    render(){
-        console.log(this.props);
-        return (
-            <Container className="content bs-margin-top">
-                <Row>
-                    <Col md={3}>
-                        <h2> Liste articles  </h2>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col md={{ span: 10, offset: 1 }}>
-                        <Table striped bordered hover variant="dark">
-                            <thead>
-                                <tr>
-                                    <th>CODIC</th>
-                                    <th>Name CP</th>
-                                    <th>Brend</th>
-                                    <th>Family</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                            {this.props.articles ? this.props.articles.map((article, index) => (
-                                    <tr key={index} onClick={(e)=> {e.preventDefault(); this.handlArticle(article.CODIC);}}>
-                                        <td>{article.CODIC}</td>
-                                        <td>{article.NAMECP}</td>
-                                        <td>{article.MARQUE}</td>
-                                        <td>{article.FAMILY}</td>
-                                    </tr>))
-                                :
-                                    <tr>
-                                        <td colSpan="4">Empty</td>
+    this.onSelect=this.onSelect.bind(this);
+  }
 
-                                        
-                                    </tr>
-                                }
-                            </tbody>
-                        </Table>
-                    </Col>
-                </Row>
-            </Container>
-        );
+onSelect(){
+    if (localStorage.getItem('SELECTED_CODIC')){
+        
+        let isSelected=true, articleSelected=localStorage.getItem('SELECTED_CODIC');
+		this.setState({isSelected,articleSelected});
+        
     }
     
 }
+componentDidMount(){
+    console.log("call container")
+    this.props.getArticles();   
+}
 
-//const mapStateToProps = ({userArticles})=> ({userArticles});
-//const mapDispatchtoProps={getArticleByCodic}
-//export default connect(null,mapDispatchtoProps)(HomeView);
-export default HomeView;
+render(){
+    const {userArticles}= this.props;
+    return(    
+        <React.Fragment>
+            {this.state.isSelected ? <Redirect to="/detail" /> :
+                <HomeView articles = {userArticles.articles || []}  getDetail={this.onSelect}/>
+            }
+        
+        </React.Fragment>    
+       
+    );
+}
+}
+
+const mapStateToProps = ({userArticles})=> ({userArticles});
+const mapDispatchProps={getArticles};
+export default connect(mapStateToProps,mapDispatchProps)(HomeContainer);

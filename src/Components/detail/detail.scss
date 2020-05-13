@@ -61,6 +61,21 @@ $c-dark: #7b7b7b;
     
         font-size: 1em;
       }
+      &__artfamily {
+        @extend %h2;
+        color: #212121;
+        margin-top: 1rem;
+    
+        font-size: 1em;
+      }
+      &__artnamecp {
+        @extend %h2;
+        color: #212121;
+        margin-top: 1rem;
+    
+        font-size: 1em;
+      }
+
       &__description {
         @extend %p;
         color: #212121;
