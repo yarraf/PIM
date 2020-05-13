@@ -6,7 +6,7 @@ import {GET_ARTICLE_INFO,
 
 function* getProductInfoWorker(action){
     console.log("***** SAGA: getProductInfo ******")
-    const selectArtResponse={data:{"BARNEGATIVE":77,"BARPOSITIVE":0,"CODIC":8265550,"CREATIONDATE":"02/04/2020","DISPLAYPROGRESSATTRIBUTE":"","FAMILY":"PC PORTABLE","FNACSKU":"","MARQUE":"ALCATEL","NAMECP":"TESTRESCOM","URL":"/PIMBO/appcen/LIB.WebRequest.cls?Np=LGqa5nuvsjvqsTOtgqqc9morceqbeSOhYD8k","VISIBILTYINFOFNAC":"hidden"}};
+    const selectArtResponse={data:{"BARNEGATIVE":77,"BARPOSITIVE":0,"EAN":3123654789652, "STATUSAPPRO":"G", "SUPPLIER":"Britabe","CODIC":8265550,"CREATIONDATE":"02/04/2020","DISPLAYPROGRESSATTRIBUTE":"","FAMILY":"PC PORTABLE","FNACSKU":"","MARQUE":"ALCATEL","NAMECP":"TESTRESCOM","URL":"/PIMBO/appcen/LIB.WebRequest.cls?Np=LGqa5nuvsjvqsTOtgqqc9morceqbeSOhYD8k","VISIBILTYINFOFNAC":"hidden"}};
      console.log("getarticlebycodic"+action.article);
      try{
          if(action.article != ""){
