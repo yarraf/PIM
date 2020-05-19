@@ -30,7 +30,7 @@ export default class FnacForm extends React.Component{
                                 <Form.Row className="mt-2">
                                     <Form.Label column lg={2}>Classe</Form.Label>
                                     <Col lg="6">
-                                        <Form.Control as="select" placeholder="Classe fnac">
+                                        <Form.Control as="select" placeholder="Classe fnac" size="sm">
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -43,7 +43,7 @@ export default class FnacForm extends React.Component{
                                 <Form.Row className="mt-2">
                                     <Form.Label column lg={2}>Sous classe</Form.Label>
                                     <Col lg="6">
-                                        <Form.Control as="select" placeholder="Sous classe fnac">
+                                        <Form.Control as="select" placeholder="Sous classe fnac" size="sm">
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -56,7 +56,7 @@ export default class FnacForm extends React.Component{
                                 <Form.Row className="mt-2">
                                     <Form.Label column lg={2}>Gamme</Form.Label>
                                     <Col lg="6">
-                                        <Form.Control as="select" placeholder="Gamme fnac">
+                                        <Form.Control as="select" placeholder="Gamme fnac" size="sm">
                                             <option>A</option>
                                             <option>B</option>
                                             <option>C</option>
