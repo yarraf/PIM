@@ -62,7 +62,7 @@ export default class FnacForm extends React.Component{
                                             <option>C</option>
                                             <option>D</option>
                                             <option>E</option>
-                                            </Form.Control>
+                                        </Form.Control>
                                     </Col>                                                              
                                 </Form.Row>
                                 <Form.Row className="mt-2">
