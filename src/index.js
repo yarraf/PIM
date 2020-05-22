@@ -10,8 +10,6 @@ import DetailContainer from './Components/detail/DetailContainer';
 import "./index.scss";
 
 
-
-
 class IndexApp extends React.Component{
     render(){
         localStorage.clear();

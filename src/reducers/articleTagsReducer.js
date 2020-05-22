@@ -1,6 +1,7 @@
 import {FETCHED_ARTICLE_TAGS} from '../actions/types'; 
 
 
+
 const tagsReducer=(state={},action)=>{ 
       switch(action.type){ 
       case  FETCHED_ARTICLE_TAGS: 
@@ -8,6 +9,7 @@ const tagsReducer=(state={},action)=>{
              tags:action.payload.data 
                  }; 
 
+               
             default: 
               return state; 
     } 

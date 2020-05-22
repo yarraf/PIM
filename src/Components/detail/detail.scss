@@ -1,6 +1,9 @@
 //VARS
 $c-dark: #7b7b7b;
-
+%small {
+  font-size: .75rem;
+  font-weight: normal;
+}
 
 .content {
     .publication-form {
@@ -26,9 +29,15 @@ $c-dark: #7b7b7b;
     //font-weight: bold;
   }
 //end placeholder
+.bloc{ 
+margin-top: 0.5 rem;
 
+&__title {
+  font-size: 1rem !important;
+}
+}
   .left {
-      margin-top:0.5rem;
+    margin-top:0.5rem;
     padding-right: 1rem;
     border-radius: .7rem;
     &__avatar {
@@ -38,8 +47,8 @@ $c-dark: #7b7b7b;
       border-radius: .7rem;
     }
     &__avatarhome {
-        width: 12.5rem;
-        height: 10.5rem;
+        width: 6.5rem;
+        height: 4.5rem;
         object-fit: cover;
         border: 3px solid white;
         box-shadow: 1px 1px #f2f2f2;
@@ -61,21 +70,6 @@ $c-dark: #7b7b7b;
     
         font-size: 1em;
       }
-      &__artfamily {
-        @extend %h2;
-        color: #212121;
-        margin-top: 1rem;
-    
-        font-size: 1em;
-      }
-      &__artnamecp {
-        @extend %h2;
-        color: #212121;
-        margin-top: 1rem;
-    
-        font-size: 1em;
-      }
-
       &__description {
         @extend %p;
         color: #212121;
