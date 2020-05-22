@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import AttribueFreeText from './AttributeFreeText';
 
 
 
@@ -29,11 +29,7 @@ class Attribut extends Component {
 
                             {attr.ATTRFREETEXT.map((i, index) => {
                                 return (
-                                    <div className="Content-card shadow p-3 mb-5">
-                                        <div>{i.ASSET}</div>
-                                        <div>{i.ATTRIBUTENAME}</div>
-                                        <div>{i.SEQUENCE}</div>
-                                    </div>
+                                    <AttribueFreeText attr={i}/>
 
                                 )
                             })

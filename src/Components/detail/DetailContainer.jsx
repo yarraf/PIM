@@ -17,7 +17,7 @@ import {getArticleInfo,getTagsArticle,getAttrArticle} from '../../actions/articl
     render(){ 
 
 const {articleInfo,articleTags,articleAttr} = this.props;  
- return <DetailView art={articleInfo}   artAttr={articleAttr.attr || [] } artTags={articleTags.tags || []  }  ></DetailView>  
+ return <DetailView art={articleInfo} artAttr={articleAttr.attr || [] } artTags={articleTags.tags || []  }  ></DetailView>  
     } 
 } 
 
