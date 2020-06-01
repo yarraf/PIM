@@ -1,6 +1,7 @@
 import React from 'react';
 import Attribut from '../attribut/Attribut';
 import { Row, Container, Col, Image, Card, Button, Form } from 'react-bootstrap';
+import './Tag.scss'
 
 export default class Tag extends React.Component {
 

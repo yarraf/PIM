@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import AttribueFreeText from './AttributeFreeText';
+import AttrCalculated from './AttrCalculated';
+import AttrPredefinit from './AttrPredefinit';
+import '../attribut/attribute.scss'
 
 
 
@@ -10,26 +13,21 @@ class Attribut extends Component {
 
     render() {
         return (
-            <div className="Content-card shadow p-3 mb-5">
-                {this.props.listAttr.ATTRIBUTES.map((attr) => {
-                    return (
-                        <div>
-                            {attr.ATTRCALCULATED.map((index) => {
+            <div className="text-muted text-size-details">
+                {this.props.listAttr.ATTRIBUTES.map((attr,index) => {
+                    return ( <div key={index}>
+                            {attr.ATTRCALCULATED.map((i,index) => {
                                 return (
-                                    <div className="Content-card shadow p-3 mb-5">
-                                        <div>{index.ASSET}</div>
-                                        <div>{index.ATTRIBUTENAME}</div>
-                                        <div>{index.SEQUENCE}</div>
-                              
-                                    </div>
+                                    <AttrCalculated key={index} attr={i}/>
 
                                 )
                             })
                             }
+                       
 
                             {attr.ATTRFREETEXT.map((i, index) => {
                                 return (
-                                    <AttribueFreeText attr={i}/>
+                                    <AttribueFreeText key={index} attr={i}/>
 
                                 )
                             })
@@ -37,11 +35,7 @@ class Attribut extends Component {
 
                             {attr.ATTRPREDEFINIT.map((i, index) => {
                                 return (
-                                    <div className="Content-card shadow p-3 mb-5">
-                                        <div>{i.ASSET}</div>
-                                        <div>{i.ATTRIBUTENAME}</div>
-                                        <div>{i.SEQUENCE}</div>
-                                    </div>
+                                 <AttrPredefinit key={index} attr={i}/>
 
                                 )
                             })

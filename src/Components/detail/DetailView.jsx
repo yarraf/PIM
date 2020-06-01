@@ -28,6 +28,16 @@ export default class DetailView extends React.Component {
         this.setState({ currentFamily })
     }
 
+    mapAttrToTags(){
+        this.props.artTags.map((tag) => (
+           
+              tag.listAttr = this.props.artAttr 
+        
+    ))
+    console.log("test"+this.props);
+        
+    }
+
     renderCardGeneralInfo = () => {
         const article = this.props.art.article;
         return (
@@ -35,17 +45,13 @@ export default class DetailView extends React.Component {
                 <Card bg="light">
 
                     <Card.Body>
-                        <Card.Title className="bloc__title text-uppercase">Information générales</Card.Title>
-                        <div className="d-flex flex-row text-muted">
-                            <div className="bd-highlight mr-1">Marque: </div>
-                            <div className="bd-highlight mr-4">{article && article.MARQUE}</div>
-                            <div className="bd-highlight mr-1">Fournisseur: </div>
-                            <div className="bd-highlight mr-4">{article && article.SUPPLIER}</div>
-                            <div className="bd-highlight mr-1">EAN:</div>
-                            <div className="bd-highlight mr-4">{article && article.EAN}</div>
-                            <div className="bd-highlight mr-1">Statut d'approvisionnement:</div>
-                            <div className="bd-highlight">{article && article.STATUSAPPRO}</div>
-
+                        <Card.Title className="text-uppercase">Information générales</Card.Title>
+                        <div className="text-muted text-size-details">
+                      
+                            <div className="bd-highlight mr-1 ">Marque: {article && article.MARQUE} </div>
+                            <div className="bd-highlight mr-1">Fournisseur: {article && article.SUPPLIER}</div>
+                            <div className="bd-highlight mr-1">EAN: {article && article.EAN}</div>
+                            <div className="bd-highlight mr-1">Statut d'approvisionnement: {article && article.STATUSAPPRO}</div>
                         </div>
                     </Card.Body>
                 </Card>
@@ -60,16 +66,13 @@ export default class DetailView extends React.Component {
                 <Card bg="light">
 
                     <Card.Body>
-                        <Card.Title className="bloc__title text-uppercase">Informations VandenBorre</Card.Title>
-                        <div className="d-flex flex-row text-muted">
-                            <div className="bd-highlight mr-1">Codic : </div>
-                            <div className="bd-highlight mr-4">{article && article.CODIC}</div>
-                            <div className="bd-highlight mr-1">Famillle: </div>
-                            <div className="bd-highlight mr-4">{article && article.FAMILY}</div>
-                            <div className="bd-highlight mr-1">Date de creation :</div>
-                            <div className="bd-highlight mr-4">{article && article.CREATIONDATE}</div>
-                            <div className="bd-highlight mr-1">Nom CP:</div>
-                            <div className="bd-highlight">{article && article.NAMECP}</div>
+                        <Card.Title className="text-uppercase">Informations VandenBorre</Card.Title>
+                        <div className="text-muted text-size-details">
+                        
+                            <div className="bd-highlight mr-4">Codic :{article && article.CODIC}</div>
+                            <div className="bd-highlight mr-4">Famille :{article && article.FAMILY}</div>
+                            <div className="bd-highlight mr-4">Date de creation :{article && article.CREATIONDATE}</div>
+                            <div className="bd-highlight">Nom CP :{article && article.NAMECP}</div>
 
                         </div>
                     </Card.Body>
@@ -112,7 +115,7 @@ export default class DetailView extends React.Component {
      renderCardAttr = () => {
          console.log(this.props)
         return(
-            <div className="mt-2">
+            <div className="mt-2" md="6">
                
             <Card bg="light">
                
@@ -125,14 +128,14 @@ export default class DetailView extends React.Component {
                 </Col> ))} 
 
                     
-                <div> 
+                <div className="text-muted text-size-details" > 
                     <Card bg="light">
                     <Card.Title className="bloc__title "> Connexion Péritél</Card.Title>  
                                     
                     <Form>
                         <Form.Group>
                             <Form.Row className="mt-2">
-                            <Col sm="12" ><button type="button">Ajouter atout</button></Col>
+                            <Col sm="" ><button type="button">Ajouter atout</button></Col>
                                 <Col lg="5">
                                     <Form.Control as="select" placeholder="Sélectionner une valeur">
                                         <option>1</option>
@@ -144,7 +147,7 @@ export default class DetailView extends React.Component {
                                        
                                  </Col>
                                  OU
-                                 <Col>
+                                 <Col sm="6">
                                     <Form.Control type="text" placeholder="" />
                                 </Col>
 
@@ -158,9 +161,9 @@ export default class DetailView extends React.Component {
                     </div>
                      <br/>
 
-                     <div> 
-                    <Card bg="light">
-                    <Card.Title className="bloc__title ">Optimisation d'image</Card.Title>  
+                     <div className="text-muted text-size-details"> 
+                    <Card bg="light" >
+                    <Card.Title className="bloc__title  ">Optimisation d'image</Card.Title>  
                  
                     <Form>
                         <Form.Group>
@@ -182,9 +185,9 @@ export default class DetailView extends React.Component {
                     </Card>
                     </div> 
                     <br/>   
-                    <div>  
+                    <div className="text-muted text-size-details">  
                     <Card bg="white">
-                    <Card.Title className="bloc__title ">Connex.Vidéo(Calc)</Card.Title>  
+                    <Card.Title className="bloc__title">Connex.Vidéo(Calc)</Card.Title>  
                                     
                     <Form>
                         <Form.Group>
@@ -213,26 +216,36 @@ export default class DetailView extends React.Component {
    
     render() {
 
-
-        return <Container className="content">
-            <Row>
-                <Col>
-                    {this.renderCardGeneralInfo()} {this.renderCardVandenInfo()}
+       
+        return <div className=" container-fluid content">
+ <Row>
+                
+                <Col >
+                {this.mapAttrToTags()}
                 </Col>
             </Row>
 
             <Row>
-                <Col>
+                <Col >
+                    {this.renderCardGeneralInfo()} 
+                </Col>
+                <Col >
+                    {this.renderCardVandenInfo()}
+                </Col>
+            </Row>
+
+            <Row>
+                <Col md="8">
                 {this.renderCardTag()}
                 </Col>
                 
             </Row>
             <Row>
-                <Col>
+                <Col md="8">
                    {this.renderCardAttr()}
                 </Col>
             </Row>
             <Row> <Link to="/home">Retour à la liste</Link></Row>
-        </Container>
+        </div>
     }
 }
