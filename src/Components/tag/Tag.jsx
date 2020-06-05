@@ -12,7 +12,7 @@ export default class Tag extends React.Component {
     
     render() {
  
-        return <div className="Content-card shadow p-3 mb-5">
+        return <div  className="Content-card shadow p-3 mb-5">
                    <span>{this.props.Name}  </span>
                    <span>{this.props.Id}</span>
                 </div>

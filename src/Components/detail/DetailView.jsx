@@ -41,17 +41,17 @@ export default class DetailView extends React.Component {
     renderCardGeneralInfo = () => {
         const article = this.props.art.article;
         return (
-            <div className="mt-2">
+            <div  id="a" className="mt-2">
                 <Card bg="light">
 
                     <Card.Body>
                         <Card.Title className="text-uppercase">Information générales</Card.Title>
                         <div className="text-muted text-size-details">
                       
-                            <div className="bd-highlight mr-1 ">Marque: {article && article.MARQUE} </div>
-                            <div className="bd-highlight mr-1">Fournisseur: {article && article.SUPPLIER}</div>
-                            <div className="bd-highlight mr-1">EAN: {article && article.EAN}</div>
-                            <div className="bd-highlight mr-1">Statut d'approvisionnement: {article && article.STATUSAPPRO}</div>
+                            <div class="mr1" className="bd-highlight mr-1 "> <b>Marque :</b>  <div id="c">{article && article.MARQUE}</div>  </div> 
+                            <div className="bd-highlight mr-1"><b>Fournisseur:</b>  <div id="c">{article && article.SUPPLIER}</div></div> 
+                            <div className="bd-highlight mr-1"> <b>EAN:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <div id="c">{article && article.EAN}</div></div>
+                            <div className="bd-highlight mr-1"><b>Statut d'approvisionnement:</b> <div id="c">{article && article.STATUSAPPRO}</div></div>
                         </div>
                     </Card.Body>
                 </Card>
@@ -62,17 +62,17 @@ export default class DetailView extends React.Component {
     renderCardVandenInfo = () => {
         const article = this.props.art.article;
         return (
-            <div className="mt-2">
+            <div id="b" className="mt-2">
                 <Card bg="light">
 
                     <Card.Body>
                         <Card.Title className="text-uppercase">Informations VandenBorre</Card.Title>
                         <div className="text-muted text-size-details">
                         
-                            <div className="bd-highlight mr-4">Codic :{article && article.CODIC}</div>
-                            <div className="bd-highlight mr-4">Famille :{article && article.FAMILY}</div>
-                            <div className="bd-highlight mr-4">Date de creation :{article && article.CREATIONDATE}</div>
-                            <div className="bd-highlight">Nom CP :{article && article.NAMECP}</div>
+                            <div  className="bd-highlight mr-4"><b>Codic :</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <div id="c">{article && article.CODIC}</div></div>
+                            <div  className="bd-highlight mr-4"><b>Famille :</b>&nbsp;&nbsp;&nbsp; <div id="c">{article && article.FAMILY} </div></div>
+                            <div  className="bd-highlight mr-4"><b>Date de creation :</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <div id="v">{article && article.CREATIONDATE}</div> </div>
+                            <div  className="bd-highlight"><b>Nom CP :</b> <div id="c">{article && article.NAMECP}</div></div>
 
                         </div>
                     </Card.Body>
@@ -84,12 +84,12 @@ export default class DetailView extends React.Component {
     renderCardTag = () => {
 
         return (
-            <div className="mt-2">
+            <div id="Péritél_1" className="mt-2">
                 <Card bg="light">
                     <Card.Body>
                         <Card.Title className="bloc__title text-uppercase">Tags</Card.Title>
                         {this.props.artTags.map((tag, index) => (
-                                <Col key={index} sm="3" >
+                                <Col  key={index} sm="6" > 
                                 <Tag key={index} Name={tag.NAME}  />
                               
                             </Col>
@@ -98,9 +98,26 @@ export default class DetailView extends React.Component {
                         <Form>
                             <Form.Group>
                                 <Form.Row>
-                                    <Col md="12">
-                                        <input type="text" className="input" onChange={this.handleChange} placeholder="Search..." />
-                                        <button >Search</button>
+                                     <Col >
+                       
+                          
+                                    {/* <input  type="search"   id="input1" className="input" placeholder="Search..." />
+                                    <button id="btn_2" type="submit" class="btn btn-danger"><i class="fa fa-search"></i></button> */}
+                                    
+                                    {/* <input type="text" class="form-control" id="input1" className="input" onChange={this.handleChange} placeholder="Search..." /> */}
+                                  
+                                  {/* <input type="text" class="form-control" id="input" className="input" onChange={this.handleChange} placeholder="Search..." /> 
+                                        &nbsp;&nbsp;&nbsp;
+                                        <button id="btn_1" class="btn btn-danger">Search</button> */}
+                                    </Col> 
+                                </Form.Row>
+                                <Form.Row>
+                                    <Col>
+                                        <div class="form-group">
+                                            <label for="search" class="sr-only">Search</label>
+                                            <input type="text" class="form-control" name="search" id="search" placeholder="search..."/>
+                                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                                        </div>
                                     </Col>
                                 </Form.Row>
                             </Form.Group>
@@ -115,29 +132,35 @@ export default class DetailView extends React.Component {
      renderCardAttr = () => {
          console.log(this.props)
         return(
-            <div className="mt-2" md="6">
+            <div id="Péritél_1" className="mt-2" md="6">
                
             <Card bg="light">
                
             <Card.Body>
                 <Card.Title className="bloc__title text-uppercase">Attributs</Card.Title>
-                 {this.props.artAttr.map((attr , index) => (
+                 {/* {this.props.artAttr.map((attr , index) => (
                     <Col key={index} sm="7" >
                     <Attribut key={index} listAttr={attr} />
                     
-                </Col> ))} 
+                </Col> ))}  */}
 
                     
-                <div className="text-muted text-size-details" > 
-                    <Card bg="light">
-                    <Card.Title className="bloc__title "> Connexion Péritél</Card.Title>  
+                <div id="Péritél"  className="text-muted text-size-details"> 
+                    <Card  id="card" bg="light">
+                    <Card.Title id="title" className="bloc__title "> Connexion Péritél
+                    <Col id="bt3" ><button id="color-btn" class="btn btn-danger" type="submit">Ajouter atout</button></Col>
+                    </Card.Title>  
                                     
                     <Form>
                         <Form.Group>
                             <Form.Row className="mt-2">
-                            <Col sm="" ><button type="button">Ajouter atout</button></Col>
-                                <Col lg="5">
+                            {/* <div>
+                            <Col id="bt2" ><button type="button">Ajouter atout</button></Col>
+                            </div> */}
+                            
+                                <Col id="drop" lg="6">
                                     <Form.Control as="select" placeholder="Sélectionner une valeur">
+                                        <option>Sélectionner une valeur</option>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -146,8 +169,9 @@ export default class DetailView extends React.Component {
                                         </Form.Control>
                                        
                                  </Col>
-                                 OU
-                                 <Col sm="6">
+                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                 <div id="ou">OU</div>
+                                 <Col id="col_2" sm="4">
                                     <Form.Control type="text" placeholder="" />
                                 </Col>
 
@@ -161,21 +185,23 @@ export default class DetailView extends React.Component {
                     </div>
                      <br/>
 
-                     <div className="text-muted text-size-details"> 
+                     <div id="Péritél" className="text-muted text-size-details"> 
                     <Card bg="light" >
-                    <Card.Title className="bloc__title  ">Optimisation d'image</Card.Title>  
-                 
+                    <Card.Title id="title" className="bloc__title">Optimisation d'image</Card.Title>  
+                    <Col id="bt2" ><button id="color-btn" class="btn btn-danger" type="submit">Ajouter atout</button></Col>
+                   
                     <Form>
                         <Form.Group>
                             <Form.Row className="mt-2">
-                            <Col><button type="button">Ajouter atout</button></Col>
+                                 <Col id="vh">
+                                    {/* <Form.Control type="text" placeholder=" Text libre NL" /> */}
+                                    <input id="input_2" type="text" class="form-control"  placeholder=" Text libre NL"/>
+                                    <br/>
+                                    {/* <Form.Control type="textPath" placeholder=" Text libre FR" /> */}
+                                    <input id="input_2" type="text" class="form-control" placeholder=" Text libre NL"/>
+                                </Col>
+                             
                                 
-                                 <Col>
-                                    <Form.Control type="text" placeholder=" Text libre NL" />
-                                </Col>
-                                <Col>
-                                    <Form.Control type="textPath" placeholder=" Text libre FR" />
-                                </Col>
   
                             </Form.Row>
                                                      
@@ -185,17 +211,18 @@ export default class DetailView extends React.Component {
                     </Card>
                     </div> 
                     <br/>   
-                    <div className="text-muted text-size-details">  
-                    <Card bg="white">
-                    <Card.Title className="bloc__title">Connex.Vidéo(Calc)</Card.Title>  
-                                    
+                    <div id="Péritél" className="text-muted text-size-details">  
+                    <Card bg="light">
+                    <Card.Title id="title" className="bloc__title">Connex.Vidéo(Calc)</Card.Title>  
+                    <Col id="bt2" ><button id="color-btn" class="btn btn-danger" type="submit">Ajouter atout</button></Col>
                     <Form>
                         <Form.Group>
                             <Form.Row className="mt-2">
                                  <Col>
-                                    <Form.Control type="text" placeholder="Calculation" />
+                                    
+                                    <input id="input_2" type="text" class="form-control" placeholder="Calculation"/>
                                 </Col>
-                                <Col md="3"><button type="button">Ajouter atout</button></Col>
+                                
                                
                             </Form.Row>
                                                       
@@ -226,16 +253,16 @@ export default class DetailView extends React.Component {
             </Row>
 
             <Row>
-                <Col >
+                <Col md="3" >
                     {this.renderCardGeneralInfo()} 
                 </Col>
-                <Col >
+                <Col md="3">
                     {this.renderCardVandenInfo()}
                 </Col>
             </Row>
 
             <Row>
-                <Col md="8">
+                <Col md="6">
                 {this.renderCardTag()}
                 </Col>
                 
@@ -245,7 +272,9 @@ export default class DetailView extends React.Component {
                    {this.renderCardAttr()}
                 </Col>
             </Row>
-            <Row> <Link to="/home">Retour à la liste</Link></Row>
+            <Row>
+                 <Link id="link" class="btn btn-dark" to="/home">Retour à la liste</Link>
+            </Row>
         </div>
     }
 }
