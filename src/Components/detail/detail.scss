@@ -5,14 +5,15 @@ $c-dark: #7b7b7b;
   font-weight: normal;
 }
 #a{
- width: 300px;
+ width: 244px;
 }
 #b{
-  width: 339px;
+  width: 266px;
+  margin-left: 10px;
   margin-right: 70px !important;
  }
 #Péritél_1{
-  width: 650px;
+  width: 517px;
 }
  #c{
    display: inline;
@@ -23,7 +24,7 @@ $c-dark: #7b7b7b;
    background-color: #212121;
  }
  #Péritél{
-   width: 500px;
+   width:482px;
  }
  #title{
    margin-left: 10px;
@@ -41,14 +42,12 @@ $c-dark: #7b7b7b;
    margin-left: 20px;
    font-weight: bold;
  }
- #bt2{
-    left: 340px;
- }
- #bt3{
-    left: 330px;
- }
- #color-btn{
-  border-radius: 20px;
+
+ .btn-style{
+  width: 102px;
+  font-size: 14px !important;
+  float: right;
+  ;
  }
  #drop{
  left: 20px;
@@ -66,6 +65,7 @@ $c-dark: #7b7b7b;
  #link{
    margin-top: 20px;
    margin-left: 16px;
+   color : white ; 
  }
  #btn_1{
    width: 185px;
@@ -180,7 +180,7 @@ margin-top: 0.5 rem;
 
     
       .text-size-details{
-        font-size: 0.7rem;
+        font-size: 0.64rem;
       }
 
       .bloc__title{
@@ -203,9 +203,62 @@ margin-top: 0.5 rem;
         height: 34px;
         line-height: 34px;
         text-align: center;
-        color: #3596e0;
+        color: #f2f2f2;
         left: initial;
         font-size: 14px;
       }
-      
-      
+
+    
+
+    .searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #dc3545;
+    border-radius: 10px;
+    padding: 10px;
+    
+    }
+// 
+#icon{
+  color:white ;
+}
+    .search_input{
+    color: #f2f2f2;
+    border: 0;
+    background:none;
+    margin-bottom: 20px;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+   
+    }
+
+    .searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color: #dc3545;
+    transition: width 0.4s linear;
+    
+    }
+
+  #margin{
+   background-color:grey;
+  //  display: inline-block;
+ 
+  padding-left: 145px;
+  height: 600px;
+  width: 100%;
+  }
+    
+
+.padding-body {
+    padding-top: 0px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+}
+
+.title-padding {
+  padding: 0px 0px 0px 12px;
+}
