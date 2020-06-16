@@ -1,9 +1,12 @@
 import React from 'react';
-import { Row, Container, Col, Image, Card, Button, Form, button, Toggle, Collapse, Accordion } from 'react-bootstrap';
+import { Row, Container, Col, Image, Card, Button, Form, button, Toggle, Collapse, Accordion,Icon, } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Tag from '../tag/Tag';
 import Attribut from '../attribut/Attribut';
 import "./detail.scss";
+
+
+
 
 export default class DetailView extends React.Component {
     constructor(props) {
@@ -48,7 +51,7 @@ export default class DetailView extends React.Component {
                         <Card.Title className="text-uppercase"><h6>Information générales</h6></Card.Title>
                         <div className="text-muted text-size-details">
 
-                            <div class="mr1" className="bd-highlight mr-1 "> <b>Marque :</b>  <div id="c">{article && article.MARQUE}</div>  </div>
+                            <div class="mr1" className="bd-highlight mr-1 "> <b>Marque :</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div id="c">{article && article.MARQUE}</div>  </div>
                             <div className="bd-highlight mr-1"><b>Fournisseur:</b>  <div id="c">{article && article.SUPPLIER}</div></div>
                             <div className="bd-highlight mr-1"> <b>EAN:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <div id="c">{article && article.EAN}</div></div>
                             <div className="bd-highlight mr-1"><b>Statut d'approvisionnement:</b> <div id="c">{article && article.STATUSAPPRO}</div></div>
@@ -85,11 +88,11 @@ export default class DetailView extends React.Component {
     renderCardTag = () => {
 
         return (
-            <div id="Péritél_1" className="mt-2">
+            <div id="Péritél_1" className="mt-1.5">
                 <Card bg="light">
                     <Accordion defaultActiveKey="0">
                             <Accordion.Toggle as={Card.Header} eventKey="1" class="title-padding">
-                                <Card.Title className="bloc__title text-uppercase" >Tags <span class="caret"></span></Card.Title>
+                                <Card.Title className="bloc__title text-uppercase">Tags <span class="caret"></span></Card.Title>
                             </Accordion.Toggle>
                             <Accordion.Collapse eventKey="1">
                                 <Card.Body>
@@ -106,13 +109,12 @@ export default class DetailView extends React.Component {
                                                 <Col>
                                                     <div class="container h-100">
                                                         <div class="d-flex justify-content-center h-100" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            <div class="searchbar" >
-
-                                                                <input class="search_input" type="text" name="" placeholder="Search..." />
-                                                                <a href="#" class="glyphicon glyphicon-search" id="icon"  ></a>
-                                                            </div>
+                                                        <div class="searchbar" >
+                                                   <input class="search_input" type="text" name="" placeholder="Search..." />
+                                                   <a href="#" class="glyphicon glyphicon-search" id="icon"  ></a>
                                                         </div>
-                                                    </div>
+                                                        </div>
+                                                        </div>
                                                 </Col>
                                             </Form.Row>
                                         </Form.Group>
@@ -129,14 +131,14 @@ export default class DetailView extends React.Component {
         console.log(this.props)
         return (
 
-            <div id="Péritél_1" className="mt-2" md="6">
+            <div id="Péritél_1" className="mt-1.5" md="6">
 
                 <Card bg="light">
 
                     <Accordion defaultActiveKey="0">
 
                         <Accordion.Toggle as={Card.Header} eventKey="1" class="title-padding">
-                            <Card.Title className="bloc__title text-uppercase">Attributs <span class="caret"></span></Card.Title>
+                            <Card.Title className="bloc__title text-uppercase">Attributs <span class="caret"></span> </Card.Title>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                             <Card.Body>
@@ -183,7 +185,7 @@ export default class DetailView extends React.Component {
                                 <div id="Péritél" className="text-muted text-size-details">
                                     <Card bg="light" >
                                         <Card.Title id="title" className="bloc__title">Optimisation d'image</Card.Title>
-                                        <Col><button class="btn-style btn btn-danger" type="submit">Ajouter atout</button></Col>
+                                        <Col><button class="btn-style btn btn-danger" type="submit" >Ajouter atout</button></Col>
 
                                         <Form>
                                             <Form.Group>
@@ -230,8 +232,8 @@ export default class DetailView extends React.Component {
     render() {
 
 
-        return <div class="align-self-center" id="margin">
-            <div className=" container-fluid content" id="margin">
+        return <div class="align-self-center" id="margin" responsive>
+            <div className=" container content" id="margin"  responsive>
 
                 <Row>
 
@@ -241,10 +243,10 @@ export default class DetailView extends React.Component {
                 </Row>
 
                 <Row>
-                    <Col md="3" >
+                    <div>
                         {this.renderCardGeneralInfo()}
-                    </Col>
-                    <Col md="3">
+                    </div>
+                    <Col md="3" responsive="md">
                         {this.renderCardVandenInfo()}
                     </Col>
                 </Row>
@@ -261,7 +263,7 @@ export default class DetailView extends React.Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Link id="link" class="btn btn-danger" to="/home">Retour à la liste</Link>
+                    <Link id="link" class="btn btn-danger"  to="/home">Retour à la liste</Link>
                 </Row>
 
             </div>
