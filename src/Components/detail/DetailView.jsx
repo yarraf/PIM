@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Tag from '../tag/Tag';
 import Attribut from '../attribut/Attribut';
 import "./detail.scss";
+import Overlay from 'react-overlays/Overlay';
 
 
 
@@ -17,7 +18,7 @@ export default class DetailView extends React.Component {
             redirect: false
         }
     }
-
+      
     setRedirect = () => {
         this.setState({
             redirect: true
@@ -109,7 +110,7 @@ export default class DetailView extends React.Component {
                                                 <Col>
                                                     <div class="container h-100">
                                                         <div class="d-flex justify-content-center h-100" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        <div class="searchbar" >
+                                                        <div class="searchbar" id="marginright" >
                                                    <input class="search_input" type="text" name="" placeholder="Search..." />
                                                    <a href="#" class="glyphicon glyphicon-search" id="icon"  ></a>
                                                         </div>
@@ -133,7 +134,7 @@ export default class DetailView extends React.Component {
 
             <div id="Péritél_1" className="mt-1.5" md="6">
 
-                <Card bg="light">
+                <Card  bg="light">
 
                     <Accordion defaultActiveKey="0">
 
@@ -145,7 +146,9 @@ export default class DetailView extends React.Component {
                                 <div id="Péritél" className="text-muted text-size-details">
                                     <Card id="card" bg="light">
                                         <Card.Title id="title" className="bloc__title "> Connexion Péritél
-                    <Col ><button class="btn btn-danger btn-style" type="submit">Ajouter atout</button></Col>
+                                        <button id="btnTest" class="btn btn-danger  btn-style" type="submit" >
+    <i class="fa fa-plus" id="ff"></i> 
+</button>
                                         </Card.Title>
 
                                         <Form>
@@ -156,8 +159,8 @@ export default class DetailView extends React.Component {
                             </div> */}
 
                                                     <Col id="drop" lg="6">
-                                                        <Form.Control as="select" placeholder="Sélectionner une valeur">
-                                                            <option>Sélectionner une valeur</option>
+                                                        <Form.Control as="select" placeholder="Sélectionner une valeur" id="input_3">
+                                                            <option >Sélectionner une valeur </option>
                                                             <option>1</option>
                                                             <option>2</option>
                                                             <option>3</option>
@@ -169,7 +172,7 @@ export default class DetailView extends React.Component {
                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                  <div id="ou">OU</div>
                                                     <Col id="col_2" sm="4">
-                                                        <Form.Control type="text" placeholder="" />
+                                                        <Form.Control type="text" placeholder="" id="input_4" />
                                                     </Col>
 
 
@@ -179,15 +182,14 @@ export default class DetailView extends React.Component {
 
                                         </Form>
                                     </Card>
-                                </div>
-                                <br />
 
-                                <div id="Péritél" className="text-muted text-size-details">
-                                    <Card bg="light" >
-                                        <Card.Title id="title" className="bloc__title">Optimisation d'image</Card.Title>
-                                        <Col><button class="btn-style btn btn-danger" type="submit" >Ajouter atout</button></Col>
-
-                                        <Form>
+   <div id="espace_div">
+  <Card id="card"  bg="light" >    
+  <Card.Title id="title" className="bloc__title">Optimisation d'image
+  <button id="btnTest" class="btn-style btn btn-danger" type="submit" ><i class="fa fa-plus" id="ff"></i></button>
+  </Card.Title>
+                 
+                                    <Form>
                                             <Form.Group>
                                                 <Form.Row className="mt-2">
                                                     <Col id="vh">
@@ -201,12 +203,15 @@ export default class DetailView extends React.Component {
                                             </Form.Group>
                                         </Form>
                                     </Card>
+                                    </div>  
                                 </div>
                                 <br />
                                 <div id="Péritél" className="text-muted text-size-details">
-                                    <Card bg="light">
-                                        <Card.Title id="title" className="bloc__title">Connex.Vidéo(Calc)</Card.Title>
-                                        <Col><button class="btn btn-danger btn-style" type="submit">Ajouter atout</button></Col>
+                                    <Card id="card" bg="light">
+                                        <Card.Title id="title" className="bloc__title">Connex.Vidéo(Calc)
+                                        <button id="btnTest"  class="btn btn-danger btn-style" type="submit" ><i class="fa fa-plus" id="ff"></i></button>
+                                        </Card.Title>
+                                        
                                         <Form>
                                             <Form.Group>
                                                 <Form.Row className="mt-2">
