@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import Tag from '../tag/Tag';
 import Attribut from '../attribut/Attribut';
 import "./detail.scss";
-import Overlay from 'react-overlays/Overlay';
+import Overlay from 'react-bootstrap/Overlay';
+import Tooltip from 'react-bootstrap/Tooltip';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 
 
 
@@ -44,6 +46,7 @@ export default class DetailView extends React.Component {
 
     renderCardGeneralInfo = () => {
         const article = this.props.art.article;
+        
         return (
             <div id="a" className="mt-2">
                 <Card bg="light">
@@ -108,13 +111,14 @@ export default class DetailView extends React.Component {
                                         <Form.Group>
                                             <Form.Row>
                                                 <Col>
-                                                    <div class="container h-100">
-                                                        <div class="d-flex justify-content-center h-100" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        <div class="searchbar" id="marginright" >
-                                                   <input class="search_input" type="text" name="" placeholder="Search..." />
-                                                   <a href="#" class="glyphicon glyphicon-search" id="icon"  ></a>
-                                                        </div>
-                                                        </div>
+              <div class="container h-100">
+         <input type="text" placeholder="Search.." name="search2" id="marginright" />
+  <button type="submit"   id="marginleft"><i class="fa fa-search"></i></button>
+             {/* <div class="d-flex justify-content-center h-100" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="searchbar" id="marginright" >
+               <input class="search_input" type="text" name="" placeholder="Search..." />
+              <a href="#" class="glyphicon glyphicon-search" id="icon"  ></a> */}
+                                                        
                                                         </div>
                                                 </Col>
                                             </Form.Row>
@@ -146,9 +150,14 @@ export default class DetailView extends React.Component {
                                 <div id="Péritél" className="text-muted text-size-details">
                                     <Card id="card" bg="light">
                                         <Card.Title id="title" className="bloc__title "> Connexion Péritél
-                                        <button id="btnTest" class="btn btn-danger  btn-style" type="submit" >
+ {/* <button id="btnTest" class="btn btn-success btn-style" type="submit" >
+    <i class="fa fa-plus" id="ff"></i> 
+</button> */}
+<OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Ajouter atout</Tooltip>}>
+<button id="btnTest" class="btn btn-success btn-style" type="submit" >
     <i class="fa fa-plus" id="ff"></i> 
 </button>
+			</OverlayTrigger>
                                         </Card.Title>
 
                                         <Form>
@@ -186,7 +195,11 @@ export default class DetailView extends React.Component {
    <div id="espace_div">
   <Card id="card"  bg="light" >    
   <Card.Title id="title" className="bloc__title">Optimisation d'image
-  <button id="btnTest" class="btn-style btn btn-danger" type="submit" ><i class="fa fa-plus" id="ff"></i></button>
+  <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Ajouter atout</Tooltip>}>
+<button id="btnTest" class="btn btn-success btn-style" type="submit" >
+    <i class="fa fa-plus" id="ff"></i> 
+</button>
+			</OverlayTrigger>
   </Card.Title>
                  
                                     <Form>
@@ -209,7 +222,11 @@ export default class DetailView extends React.Component {
                                 <div id="Péritél" className="text-muted text-size-details">
                                     <Card id="card" bg="light">
                                         <Card.Title id="title" className="bloc__title">Connex.Vidéo(Calc)
-                                        <button id="btnTest"  class="btn btn-danger btn-style" type="submit" ><i class="fa fa-plus" id="ff"></i></button>
+                                        <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Ajouter atout</Tooltip>}>
+<button id="btnTest" class="btn btn-success btn-style" type="submit" >
+    <i class="fa fa-plus" id="ff"></i> 
+</button>
+			</OverlayTrigger>
                                         </Card.Title>
                                         
                                         <Form>
@@ -268,10 +285,12 @@ export default class DetailView extends React.Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Link id="link" class="btn btn-danger"  to="/home">Retour à la liste</Link>
+                    <Link id="link" class="btn btn-success"  to="/home">Retour à la liste</Link>
                 </Row>
 
             </div>
         </div>
+        
+     
     }
 }

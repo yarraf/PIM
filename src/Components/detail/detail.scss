@@ -239,47 +239,47 @@ margin-top: 0.5 rem;
       }
      
   
-      .search-form span.form-control-feedback {
-        position: absolute;
-        top: -1px;
-        right: -2px;
-        z-index: 2;
-        display: block;
-        width: 34px;
-        height: 34px;
-        line-height: 34px;
-        text-align: center;
-        color: #f2f2f2;
-        left: initial;
-        font-size: 14px;
-      }
+      // .search-form span.form-control-feedback {
+      //   position: absolute;
+      //   top: -1px;
+      //   right: -2px;
+      //   z-index: 2;
+      //   display: block;
+      //   width: 34px;
+      //   height: 34px;
+      //   line-height: 34px;
+      //   text-align: center;
+      //   color: #f2f2f2;
+      //   left: initial;
+      //   font-size: 14px;
+      // }
 
     
 
-    .searchbar{
-    margin-bottom: auto;
-    margin-top: auto;
-    height: 60px;
-    background-color: #a9a5a5 ;
-    border-radius: 10px;
-    padding: 10px;
+    // .searchbar{
+    // margin-bottom: auto;
+    // margin-top: auto;
+    // height: 60px;
+    // background-color: #a9a5a5 ;
+    // border-radius: 10px;
+    // padding: 10px;
     
-    }
+    // }
 // 
 #icon{
   color:white ;
 }
-    .search_input{
-    color: #f2f2f2;
-    border: 0;
-    background:none;
-    margin-bottom: 20px;
-    width: 0;
-    caret-color:transparent;
-    line-height: 40px;
-    transition: width 0.4s linear;
+    // .search_input{
+    // color: #f2f2f2;
+    // border: 0;
+    // background:none;
+    // margin-bottom: 20px;
+    // width: 0;
+    // caret-color:transparent;
+    // line-height: 40px;
+    // transition: width 0.4s linear;
    
-    }
+    // }
 
     .searchbar:hover > .search_input{
     padding: 0 10px;
@@ -289,7 +289,24 @@ margin-top: 0.5 rem;
     
     }
  #marginright{
-  margin-right: 130px;
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 37%;
+  // background: #f1f1f1;
+ }
+ #marginleft{
+  float: left;
+  width: 6%;
+  padding: 10px;
+  background: #4cae4c;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+  
  }
   #margin{
    background-color:grey;
